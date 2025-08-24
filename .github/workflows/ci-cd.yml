@@ -49,7 +49,7 @@ jobs:
       - name: Run database migration
         env:
           DATABASE_URL: postgres://kemzy:pass123@localhost:5432/mydb
-        run: npx medusa migrations run 
+        run: npx medusa db:migrate 
 
       - name: Run tests
         run: npm test
