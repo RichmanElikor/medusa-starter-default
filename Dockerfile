@@ -26,9 +26,7 @@ COPY --from=build /app/dist ./dist
 
 # Copy any other files needed (like config, scripts)
 COPY --from=build /app/src ./src
-COPY --from=build /app/medusa-config.js ./
-
-# Expose the server port
+COPY . .
 EXPOSE 9000
 
 # Set environment variables (adjust DB URL, REDIS, etc. as needed)
