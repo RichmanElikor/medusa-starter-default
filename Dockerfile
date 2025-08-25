@@ -22,7 +22,10 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 # Copy built output
-COPY --from=build /app/dist ./dist
+#COPY --from=build /app/dist ./dist
+# Copy built output + package files
+COPY --from=build /app/package*.json ./
+COPY --from=build /app/build ./build
 
 # Copy any other files needed (like config, scripts)
 COPY --from=build /app/src ./src
